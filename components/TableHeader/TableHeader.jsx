@@ -6,17 +6,30 @@ import exportIcon from "@/public/assets/table/export.png";
 import searchCommandIcon from "@/public/assets/table/search-command.png";
 import dotsIcon from "@/public/assets/table/dots.png";
 
-export default function TableHeader({header}) {
+export default function TableHeader({ headerTitle }) {
   return (
-    <div className="h-[88px] px-6 py-3  flex justify-between items-center">
+    <div className="h-auto md:h-[88px] px-4 md:px-6 py-3 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-0">
       {/* heading */}
-      <div className="text-[#0f1728] text-lg font-medium font-['Poppins'] leading-7">
-        Recent Bookings
+      <div className="text-[#0f1728] text-sm md:text-lg font-medium font-['Poppins'] max-md:w-full max-md:flex justify-between items-center leading-7">
+        {headerTitle}
+         {/* dropdown btn for small devives only*/}
+         <div className=" gap-3  md:hidden">
+          <div className="flex-col items-start inline-flex">
+            <div className="w-5 h-5 relative overflow-hidden">
+              <Image
+                src={dotsIcon}
+                alt="Dots Icon"
+                fill
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="flex items-center gap-4">
-        <div className="flex items-center gap-[52px]">
+      <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full md:w-auto">
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full md:w-auto">
           {/* search btn */}
-          <div className="h-10 w-[450px] justify-between px-4 py-2 bg-[#f2f2f2] rounded-lg flex items-center gap-3">
+          <div className="h-10 w-full lg:w-[450px] justify-between px-4 py-2 bg-[#f2f2f2] rounded-lg flex items-center gap-3">
             <div className="flex items-center gap-2">
               <div className="w-5 h-5 relative">
                 <Image
@@ -29,7 +42,7 @@ export default function TableHeader({header}) {
               <input
                 type="text"
                 placeholder="Search here..."
-                className="bg-[#f2f2f2] text-[#898e95] text-sm font-normal font-['Inter'] leading-tight border-none outline-none"
+                className="bg-[#f2f2f2] text-[#898e95] text-sm font-normal font-['Inter'] leading-tight border-none outline-none w-full"
               />
             </div>
             <div className="px-1.5 py-1 bg-[#ececec] rounded-md flex items-start gap-1.5 overflow-hidden">
@@ -47,8 +60,8 @@ export default function TableHeader({header}) {
             </div>
           </div>
           {/* calendar and export btn */}
-          <div className="flex items-start gap-2.5">
-            <button className="px-6 py-2.5 bg-white rounded-lg border border-[#cfd4dc] flex items-center gap-2.5">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-2.5 w-full md:w-auto">
+            <button className="w-full md:w-auto px-6 py-2.5 bg-white rounded-lg border border-[#cfd4dc] flex items-center justify-center gap-2.5">
               <div className="text-black text-sm font-normal font-['Poppins']">
                 Today
               </div>
@@ -61,7 +74,7 @@ export default function TableHeader({header}) {
                 />
               </div>
             </button>
-            <button className="px-6 py-2.5 bg-black rounded-lg flex items-center gap-2.5">
+            <button className="w-full md:w-auto px-6 py-2.5 bg-black rounded-lg flex items-center justify-center gap-2.5">
               <div className="text-white text-sm font-normal font-['Poppins']">
                 Export
               </div>
@@ -77,7 +90,7 @@ export default function TableHeader({header}) {
           </div>
         </div>
         {/* dropdown btn */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 w-full md:w-auto max-md:hidden">
           <div className="flex-col items-start inline-flex">
             <div className="w-5 h-5 relative overflow-hidden">
               <Image

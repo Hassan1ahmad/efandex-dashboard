@@ -5,7 +5,7 @@ import TinyAreaChart from "./GraphComponent/graph";
 
 function MetricCard({ heading, percentage, count,graphData,graphColor }) {
   return (
-    <div className=" w-[33%] px-5 py-6 bg-white rounded-lg border border-[#eaecf0] flex-col justify-center items-start gap-3.5 inline-flex">
+    <div className="w-full px-5 py-6 bg-white rounded-lg border border-[#eaecf0] flex-col justify-center items-start gap-3.5 inline-flex">
         {/* first line- dropdown and pernectage numner */}
       <div className="self-stretch justify-between items-center inline-flex">
         <div className="px-[8px] py-[7.25px] bg-white rounded-md shadow-[0px_0.7249999642372131px_1.4499999284744263px_0px_rgba(16,24,40,0.05)] border border-[#cfd4dc] justify-center items-center gap-[5.80px] flex overflow-hidden">

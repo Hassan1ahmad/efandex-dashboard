@@ -8,17 +8,12 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div>
-      <Navbar/>
-      <div className="flex w-full">
-        <Sidebar/>
-        <div className="bg-[#f9fbff]  ml-[250px] container">
-          <div className="p-4">
+     
+          <div className="max-sm:p-2 p-4">
           <TopMetricCards/>
           <BookingTable/>
           <UserTable/>
           </div>
-        </div>
-      </div>
     </div>
   );
 }

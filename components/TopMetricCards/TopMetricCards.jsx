@@ -26,32 +26,39 @@ function TopMetricCards() {
     { name: "Page C", uv: 3000 },
     { name: "Page C", uv: 2500 },
   ];
+
   return (
-    <div className="flex gap-3">
+    <div className="flex flex-col 900px:flex-row gap-3 ">
       {/* 1st card: active user */}
-      <MetricCard
-        heading={"Active Users"}
-        percentage={"30.5626%"}
-        count={"3632"}
-        graphData={Graphdata1}
-        graphColor={"#2a85ff"}
-      />
-      {/* 2st card: Total Properties */}
-      <MetricCard
-        heading={"Total Properties"}
-        percentage={"30.5626%"}
-        count={"10k+"}
-        graphColor={"#f96161"}
-        graphData={Graphdata2}
-      />
+      <div className="w-full 900px:w-1/2 lg:w-1/3">
+        <MetricCard
+          heading={"Active Users"}
+          percentage={"30.5626%"}
+          count={"3632"}
+          graphData={Graphdata1}
+          graphColor={"#2a85ff"}
+        />
+      </div>
+      {/* 2nd card: Total Properties */}
+      <div className="w-full 900px:w-1/2 lg:w-1/3">
+        <MetricCard
+          heading={"Total Properties"}
+          percentage={"30.5626%"}
+          count={"10k+"}
+          graphColor={"#f96161"}
+          graphData={Graphdata2}
+        />
+      </div>
       {/* 3rd card: Total Revenue */}
-      <MetricCard
-        heading={"Total Revenue"}
-        percentage={"30.5626%"}
-        count={"$900k"}
-        graphColor={"#24bc73"}
-        graphData={Graphdata3}
-      />
+      <div className="w-full 900px:w-1/2 lg:w-1/3">
+        <MetricCard
+          heading={"Total Revenue"}
+          percentage={"30.5626%"}
+          count={"$900k"}
+          graphColor={"#24bc73"}
+          graphData={Graphdata3}
+        />
+      </div>
     </div>
   );
 }

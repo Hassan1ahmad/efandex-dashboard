@@ -19,3 +19,50 @@
     background-color: #c7c8c9;
     border-radius: 100px;
   }
+
+  @media (max-width: 500px) {
+    table {
+      width: 100%;
+      overflow-x: auto;
+    }
+  
+    th,
+    td {
+      display: block;
+      width: 100%;
+      text-align: right;
+    }
+  
+    th {
+      display: none;
+    }
+  
+    td {
+      padding: 8px;
+      position: relative;
+      padding-left: 50%; /* Add space for the label */
+    }
+  
+    td::before {
+      content: attr(data-label);
+      position: absolute;
+      color: black;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
+      text-transform: uppercase;
+      width: 45%; /* Adjust as needed */
+      white-space: nowrap;
+      text-align: left;
+    }
+    td:last-child:before {
+      content: '';
+    }
+    td:last-child {
+      text-align: center;
+    }
+  
+ 
+  }
+  
