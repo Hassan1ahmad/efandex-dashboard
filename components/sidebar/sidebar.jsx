@@ -28,6 +28,7 @@ function Sidebar() {
   const { isSidebarVisible, toggleSidebar, setIsSidebarVisible } = useSidebar();
   const pathname = usePathname();
   const [isSmallDevice, setIsSmallDevice] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const isActive = (href) => pathname === href;
 
@@ -36,10 +37,10 @@ function Sidebar() {
     const handleResize = () => {
       setIsSmallDevice(window.innerWidth <= 500);
     };
-
+    setLoading(true);
     // Set initial state on component mount
     handleResize();
-
+    setLoading(false);
     // Add event listener for window resize
     window.addEventListener("resize", handleResize);
 
@@ -49,6 +50,9 @@ function Sidebar() {
     };
   }, []);
 
+  if (loading) {
+    return null;
+  }
 
   return (
     <div className="h-full fixed top-0 left-0 z-10">
