@@ -19,6 +19,17 @@
     background-color: #c7c8c9;
     border-radius: 100px;
   }
+  @media (min-width: 678px) {
+    .sideBarOpen{
+      padding-left: 250px;
+    }
+    .sideBarClose{
+      padding-left: 80px;
+    }
+   
+  }
+
+
 
   @media (max-width: 500px) {
     table {

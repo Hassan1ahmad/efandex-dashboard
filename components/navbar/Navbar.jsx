@@ -7,7 +7,7 @@ import arrowDown from "@/public/assets/arrow-down.svg";
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center  justify-between p-4 bg-white border-b border-[#efefef] text-white">
+    <nav className="flex items-center fixed top-0 w-full z-10  justify-between p-3 bg-white border-b border-[#efefef] text-white">
       {/* right content */}
       <div className="text-xl font-bold">MyLogo</div>
       {/* left content */}

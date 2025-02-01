@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Image from "next/image";
 import searchIcon from "@/public/assets/siderbar/search.png";
 import dashboardLightIcon from "@/public/assets/siderbar/dashboard-light.svg";
@@ -22,28 +22,39 @@ import barIcon from "@/public/assets/siderbar/bars-solid.svg";
 import crossIcon from "@/public/assets/siderbar/xmark-solid.svg";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSidebar } from "@/contextAPI/SidebarContext";
 
 function Sidebar() {
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const { isSidebarVisible, toggleSidebar, setIsSidebarVisible } = useSidebar();
   const pathname = usePathname();
-
-  const toggleSidebar = () => {
-    setIsSidebarVisible(!isSidebarVisible);
-  };
+  const [isSmallDevice, setIsSmallDevice] = useState(false);
 
   const isActive = (href) => pathname === href;
 
+  // Effect to check screen width and update state
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallDevice(window.innerWidth <= 500);
+    };
+
+    // Set initial state on component mount
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+
   return (
-    <div className="h-full flex">
-      {/* Sidebar */}
-      <div
-        className={`h-full px-3 pt-3 pb-8 bg-white border-r border-[#efefef] flex-col justify-between items-start inline-flex overflow-y-auto fixed top-0 left-0 z-10 custom-scrollbar transition-all duration-300 ${
-          isSidebarVisible ? "w-[250px]" : "w-[80px]"
-        }`}
-      >
-        {/* Toggle Icon */}
-        <div
-          className={`p-4 cursor-pointer z-20 transition-all duration-300`}
+    <div className="h-full fixed top-0 left-0 z-10">
+       {/* Toggle Icon */}
+       <div
+          className={`p-4 cursor-pointer z-20 transition-all duration-300 `}
           onClick={toggleSidebar}
         >
           {isSidebarVisible ? (
@@ -52,6 +63,13 @@ function Sidebar() {
             <Image src={barIcon} alt="Open" width={24} height={24} />
           )}
         </div>
+      {/* Sidebar */}
+      <div
+        className={`h-full   pb-8 bg-white border-r border-[#efefef] flex-col justify-between items-start inline-flex overflow-y-auto  custom-scrollbar transition-all duration-300 ${
+          isSidebarVisible ? "w-[250px] px-3 pt-3" : isSmallDevice ? "w-0" : "w-[80px] px-3 pt-3"
+        }`}
+      >
+       
         <div className="self-stretch h-auto md:h-[672px] flex-col justify-center items-center gap-11 flex">
           {/*header- Logo */}
           <div
