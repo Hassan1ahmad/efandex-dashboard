@@ -65,7 +65,7 @@ function Sidebar() {
         </div>
       {/* Sidebar */}
       <div
-        className={`h-full   pb-8 bg-white border-r border-[#efefef] flex-col justify-between items-start inline-flex overflow-y-auto  custom-scrollbar transition-all duration-300 ${
+        className={`h-[90%]   pb-8 bg-white border-r border-[#efefef] flex-col justify-between items-start inline-flex overflow-y-auto  custom-scrollbar transition-all duration-300 ${
           isSidebarVisible ? "w-[250px] px-3 pt-3" : isSmallDevice ? "w-0" : "w-[80px] px-3 pt-3"
         }`}
       >
